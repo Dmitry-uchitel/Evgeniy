@@ -8,7 +8,7 @@ import java.util.List;
 @Component
 public class ManList {
     private int countMan;
-    private List<Man> manList = new ArrayList<>();
+    private final List<Man> manList = new ArrayList<>();
     {
         manList.add(new Man(++countMan, 25, "Stas"));
         manList.add(new Man(++countMan, 10, "Anton"));
