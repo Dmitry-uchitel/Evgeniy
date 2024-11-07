@@ -31,7 +31,7 @@ public class MansController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addOneMan(@RequestBody Man man){
-        manList.addMan(man.getAge(),man.getName());
+        manList.addMan(man);
     }
     @DeleteMapping("/{id}")
     public void deleteOneMan(@PathVariable int id){

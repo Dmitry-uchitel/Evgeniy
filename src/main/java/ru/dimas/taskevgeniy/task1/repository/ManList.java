@@ -23,6 +23,9 @@ public class ManList {
     public void addMan(int age, String name){
         manList.add(new Man(++countMan, age, name));
     }
+    public void addMan(Man man){
+        manList.add(new Man(++countMan,man.getAge(),man.getName()));
+    }
 
     public List<Man> getManList(){
         return manList;
