@@ -17,29 +17,29 @@ public class MansController {
     }
 
     @GetMapping("/{id}")
-    public Man showId(@PathVariable int id){
+    public Man getMan(@PathVariable int id){
         System.out.println(manList.getMan(id));
         return manList.getMan(id);
     }
 
     @GetMapping()
-    public List<Man> showAllMan(){
+    public List<Man> getManList(){
         //System.out.println(manList.getMan(id));
         return manList.getManList();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void addOneMan(@RequestBody Man man){
+    public void addMan(@RequestBody Man man){
         manList.addMan(man);
     }
     @DeleteMapping("/{id}")
-    public void deleteOneMan(@PathVariable int id){
+    public void deleteMan(@PathVariable int id){
         manList.deleteMan(id-1);
     }
 
     @PatchMapping("/{id}")
-    public void updateOneMan(@PathVariable int id, @RequestBody Man man){
+    public void updateMan(@PathVariable int id, @RequestBody Man man){
         manList.updateMan(id, man);
     }
 
