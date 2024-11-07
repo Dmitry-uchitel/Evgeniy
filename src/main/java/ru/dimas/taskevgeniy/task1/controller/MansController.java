@@ -1,5 +1,6 @@
 package ru.dimas.taskevgeniy.task1.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.dimas.taskevgeniy.task1.model.Man;
@@ -8,10 +9,14 @@ import ru.dimas.taskevgeniy.task1.repository.ManList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/man")
-public class ManController {
+@RequestMapping("/mans")
+public class MansController {
 
-    public ManList manList = new ManList();
+    private final ManList manList;
+    public MansController(ManList manList) {
+        this.manList = manList;
+    }
+
     @GetMapping("/{id}")
     public Man showId(@PathVariable int id){
         System.out.println(manList.getMan(id));
@@ -34,9 +39,9 @@ public class ManController {
         manList.deleteMan(id-1);
     }
 
-    @PutMapping()
-    public void updateOneMan(@RequestBody Man man){
-        manList.updateMan(man);
+    @PatchMapping("/{id}")
+    public void updateOneMan(@PathVariable int id, @RequestBody Man man){
+        manList.updateMan(id, man);
     }
 
 
