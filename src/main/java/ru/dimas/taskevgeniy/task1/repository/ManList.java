@@ -20,11 +20,10 @@ public class ManList {
         return this.manList.stream().filter(man->man.getId()==id).findAny().orElse(null);
     }
 
-    public void addMan(int age, String name){
-        manList.add(new Man(++countMan, age, name));
-    }
     public void addMan(Man man){
-        manList.add(new Man(++countMan,man.getAge(),man.getName()));
+        man.setId(++countMan);
+        manList.add(man);
+
     }
 
     public List<Man> getManList(){
